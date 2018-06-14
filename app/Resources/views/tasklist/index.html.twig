@@ -1,0 +1,70 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+<div class="row text-center">
+
+    <div class="offset-md-2 col-md-4">
+        
+        <br><h3>Listing des listes de tâches</h3><br>
+        
+        <ul class="list-group">
+
+            {% for list in listing %}
+
+                <li class="list-group-item"> 
+
+                    <div class="row">
+
+                        <h4 class="offset-md-1 col-md-6">{{ list.name }}</h4> 
+
+                        <a href="{{ path('taskdetail', {'id': list.id}) }}" class="offset-md-2">Détails</a>
+
+                    </div>
+
+                    <div class="row">
+
+                        {% set i = 0 %}
+
+                            {% for task in tasks %}    
+                    
+                                {% if task.listing.id == list.id %}
+
+                                    {% set i = i + 1 %}
+
+                                {% endif %}
+
+                            {% endfor %}
+
+                        <span class="offset-md-1 col-md-6"> Nombre de tâches : {{ i }}</span><br>
+
+                        <a href="{{ path('tasklist_remove', {'id': list.id}) }}" class="offset-md-2">Supprimer</a>       
+
+                    </div>   
+
+                </li>
+
+            {% endfor %}
+
+        </ul><br>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                <strong>{{ message }}</strong>
+              </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="offset-md-1 col-md-3">
+
+        <br><h3>Ajouter une liste de tâches</h3><br>
+
+        {{ form(form) }}
+
+      </div>
+
+</div>
+
+{% endblock %}
+

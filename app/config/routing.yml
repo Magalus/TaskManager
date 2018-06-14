@@ -1,0 +1,45 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+tasklist:
+    path: /tasklist
+    defaults: { _controller: AppBundle:Tasklist:index }
+
+tasklist_remove:
+    path: /tasklist/remove
+    defaults: { _controller: AppBundle:Tasklist:remove }
+
+tasklist_add:
+    path: /tasklist/add
+    defaults: { _controller: AppBundle:Tasklist:add }
+
+taskdetail: 
+    path: /taskdetail
+    defaults: { _controller: AppBundle:Taskdetail:index }
+
+taskdetail_status:
+  path: /taskdetail/status
+  defaults: { _controller: AppBundle:Taskdetail:status }
+
+taskdetail_remove:
+  path: /taskdetail/remove
+  defaults: { _controller: AppBundle:Taskdetail:remove }
+
+taskdetail_edittask:
+    path: /taskedit/edittask
+    defaults: { _controller: AppBundle:Taskedit:task}
+
+taskdetail_editlist:
+    path: /taskdetail_editlist
+    defaults: { _controller: AppBundle:Taskedit:list}
+
+taskadd:
+    path: /taskadd
+    defaults: { _controller: AppBundle:Taskadd:index}
+
+taskadd_send:
+    path: /taskadd_send
+    defaults: { _controller: AppBundle:Taskadd:add}
+
+    
